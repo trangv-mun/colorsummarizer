@@ -28,15 +28,16 @@ const mapColors = (origCanvas: CanvasRenderingContext2D[], origImageDatas: Image
   canvas.map((canva, i) => {
     const imageData = imageDatas[i];
     const origImageData = origImageDatas[i];
-
+    
+    /*Reference https://phoboslab.org/log/2012/09/drawing-pixels-is-hard */
     for( let y = 0; y < newHeight; y++ ) {
       for( let x = 0; x < newWidth; x++ ) {
           const index = (Math.floor(y / scale) * width + Math.floor(x / scale)) * 4;
           const indexScaled = (y * newWidth + x) * 4;
-          imageData.data[ indexScaled ] = origImageData.data[ index ];
-          imageData.data[ indexScaled+1 ] = origImageData.data[ index+1 ];
-          imageData.data[ indexScaled+2 ] = origImageData.data[ index+2 ];
-          imageData.data[ indexScaled+3 ] = origImageData.data[ index+3 ];
+          imageData.data[indexScaled] = origImageData.data[index];
+          imageData.data[indexScaled+1] = origImageData.data[index+1];
+          imageData.data[indexScaled+2] = origImageData.data[index+2];
+          imageData.data[indexScaled+3] = origImageData.data[index+3];
       }
     }
     canva.putImageData( imageData, 0, 0 );

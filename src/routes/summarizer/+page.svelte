@@ -1,5 +1,4 @@
 <script lang="ts">
-	// import { pixels, clusters, file, histogram } from '../../results2.json';
 	import Historgram from '../../components/Historgram.svelte';
 	import { mapColors } from '../../lib/utils';
 	import type { PageData } from '../$types';
